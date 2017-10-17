@@ -16,6 +16,10 @@ export class SignalR {
     private _zone: NgZone;
     private _jHubConnectionFn: any;
 
+    public setConfiguration(conf: SignalRConfiguration){
+        this._configuration = conf;
+    }
+
     public constructor(
         configuration: SignalRConfiguration,
         zone: NgZone,
