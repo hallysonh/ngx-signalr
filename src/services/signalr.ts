@@ -26,6 +26,10 @@ export class SignalR {
         this._jHubConnectionFn = jHubConnectionFn;
     }
 
+    public setConfiguration(conf: SignalRConfiguration){
+        this._configuration = conf;
+    }
+
     public createConnection(options?: IConnectionOptions): SignalRConnection {
         let status: Observable<ConnectionStatus>;
         let configuration = this.merge(options ? options : {});
