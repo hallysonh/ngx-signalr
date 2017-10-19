@@ -6,7 +6,6 @@
 # ngx-signalr
 An angular typescript library that allows you to connect to Asp.Net SignalR
 
-
 ## Features:
  1. 100% typescript
  2. use rxjs to observe server events 
