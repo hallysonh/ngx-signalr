@@ -1,33 +1,17 @@
 import { ConnectionTransport } from './connection.transport';
 
-export class ConnectionTransports {
+const TRANSPORTS: ConnectionTransport[] = [
+  new ConnectionTransport('foreverFrame'),
+  new ConnectionTransport('longPolling'),
+  new ConnectionTransport('serverSentEvents'),
+  new ConnectionTransport('webSockets'),
+  new ConnectionTransport('auto')
+];
 
-    private static transports: ConnectionTransport[] =
-        [
-            new ConnectionTransport("foreverFrame"),
-            new ConnectionTransport("longPolling"),
-            new ConnectionTransport("serverSentEvents"),
-            new ConnectionTransport("webSockets"),
-            new ConnectionTransport("auto"),
-        ];
-
-    public static get foreverFrame(): ConnectionTransport {
-        return ConnectionTransports.transports[0];
-    }
-
-    public static get longPolling(): ConnectionTransport {
-        return ConnectionTransports.transports[1];
-    }
-
-    public static get serverSentEvents(): ConnectionTransport {
-        return ConnectionTransports.transports[2];
-    }
-
-    public static get webSockets(): ConnectionTransport {
-        return ConnectionTransports.transports[3];
-    }
-
-    public static get auto(): ConnectionTransport {
-        return ConnectionTransports.transports[4];
-    }
-}
+export const ConnectionTransports = {
+  auto: TRANSPORTS[4],
+  foreverFrame: TRANSPORTS[0],
+  longPolling: TRANSPORTS[1],
+  serverSentEvents: TRANSPORTS[2],
+  webSockets: TRANSPORTS[3]
+};

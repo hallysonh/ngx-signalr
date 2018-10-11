@@ -1,34 +1,34 @@
-import { Subject } from 'rxjs/Subject';
+import { Subject, ReplaySubject } from 'rxjs';
 import { SignalRConnectionMock, IListenerCollection } from './signalr.connection.mock';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { ConnectionStatus } from '../connection/connection.status';
 
 export class SignalRConnectionMockManager {
-    private _status$: Subject<ConnectionStatus>;
-    private _errors$: Subject<any>;
-    private _object: SignalRConnectionMock;
-    public _listeners: IListenerCollection;
+  public _listeners: IListenerCollection;
 
-    constructor() {
-        this._errors$ = new Subject<any>();
-        this._status$ = new Subject<ConnectionStatus>();
-        this._listeners = {};
-        this._object = new SignalRConnectionMock(this._errors$, this._status$, this._listeners);
-    }
+  private _status$: Subject<ConnectionStatus>;
+  private _errors$: Subject<any>;
+  private _object: SignalRConnectionMock;
 
-    get mock(): SignalRConnectionMock {
-        return this._object;
-    }
+  constructor() {
+    this._errors$ = new Subject<any>();
+    this._status$ = new Subject<ConnectionStatus>();
+    this._listeners = {};
+    this._object = new SignalRConnectionMock(this._errors$, this._status$, this._listeners);
+  }
 
-    get errors$(): Subject<any> {
-        return this._errors$;
-    }
+  get mock(): SignalRConnectionMock {
+    return this._object;
+  }
 
-    get status$(): Subject<ConnectionStatus> {
-        return this._status$;
-    }
+  get errors$(): Subject<any> {
+    return this._errors$;
+  }
 
-    get listeners(): IListenerCollection {
-        return this._listeners;
-    }
+  get status$(): Subject<ConnectionStatus> {
+    return this._status$;
+  }
+
+  get listeners(): IListenerCollection {
+    return this._listeners;
+  }
 }

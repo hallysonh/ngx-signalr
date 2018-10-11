@@ -18,7 +18,7 @@ demo : [demo](http://ngx-signalr-webui.azurewebsites.net) (can take longer to lo
 ng cli example: [ng cli example](https://github.com/HNeukermans/ngx-signalr.demo.webui.ngcli) <br>
 ## Installation
 ```
-npm install ngx-signalr jquery signalr --save
+npm install @hallysonh/ngx-signalr jquery signalr --save
 ```
 
 ## Breaking changes

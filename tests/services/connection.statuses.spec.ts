@@ -1,20 +1,18 @@
 import { ConnectionStatuses } from '../../src/services/connection/connection.statuses';
-describe("ConnectionStatuses", () => {
+describe('ConnectionStatuses', () => {
+  it('connecting should have name', () => {
+    expect(ConnectionStatuses.connecting.name).toEqual('connecting');
+  });
 
-    it("connecting should have name", () => {
-        expect(ConnectionStatuses.connecting.name).toEqual('connecting');
-    });
+  it('connected should have name', () => {
+    expect(ConnectionStatuses.connected.name).toEqual('connected');
+  });
 
-    it("connected should have name", () => {
-        expect(ConnectionStatuses.connected.name).toEqual('connected');
-    });
+  it('reconnecting should have name', () => {
+    expect(ConnectionStatuses.reconnecting.name).toEqual('reconnecting');
+  });
 
-    it("reconnecting should have name", () => {
-        expect(ConnectionStatuses.reconnecting.name).toEqual('reconnecting');
-    });
-
-    it("disconnected should have name", () => {
-        expect(ConnectionStatuses.disconnected.name).toEqual('disconnected');
-    });
-
+  it('disconnected should have name', () => {
+    expect(ConnectionStatuses.disconnected.name).toEqual('disconnected');
+  });
 });

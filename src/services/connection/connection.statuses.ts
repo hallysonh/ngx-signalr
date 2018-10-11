@@ -1,28 +1,10 @@
 import { ConnectionStatus } from './connection.status';
 
-export class ConnectionStatuses {
+const STATUSES: ConnectionStatus[] = [new ConnectionStatus(0), new ConnectionStatus(1), new ConnectionStatus(2), new ConnectionStatus(4)];
 
-    private static statuses: ConnectionStatus[] =
-        [
-            new ConnectionStatus(0),
-            new ConnectionStatus(1),
-            new ConnectionStatus(2),
-            new ConnectionStatus(4)
-        ];
-
-    public static get connecting(): ConnectionStatus {
-        return ConnectionStatuses.statuses[0];
-    }
-
-    public static get connected(): ConnectionStatus {
-        return ConnectionStatuses.statuses[1];
-    }
-
-    public static get reconnecting(): ConnectionStatus {
-        return ConnectionStatuses.statuses[2];
-    }
-
-    public static get disconnected(): ConnectionStatus {
-        return ConnectionStatuses.statuses[3];
-    }
-}
+export const ConnectionStatuses = {
+  connected: STATUSES[1],
+  connecting: STATUSES[0],
+  disconnected: STATUSES[3],
+  reconnecting: STATUSES[2]
+};

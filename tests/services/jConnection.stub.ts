@@ -1,59 +1,66 @@
 export class JConnectionStub {
-    public stub: any = {};
-    public url: string;
-    
-    constructor() {
-        this.stub.callLog = [];
-        this.stub.onFunctionDict = {};
-        this.stub.doneFunc = null;
-        this.stub.failFunc = null;
-        this.stub.errorFunc = null;
-    }
+  public stub: any = {};
+  public url: string;
 
-    createHubProxy() {
-        return new JHubProxyStub();
-    }
-    
-    error(errorFunc: any) {
-        this.stub.callLog.push('connection.error');
-        this.stub.errorFunc = errorFunc;
-    };
+  constructor() {
+    this.stub.callLog = [];
+    this.stub.onFunctionDict = {};
+    this.stub.doneFunc = null;
+    this.stub.failFunc = null;
+    this.stub.errorFunc = null;
+  }
 
-    start () {
-        this.stub.callLog.push('connection.start');
-        return new JPromiseStub();
-    };
+  public createHubProxy() {
+    return new JHubProxyStub();
+  }
 
-    stop () {
-        this.stub.callLog.push('connection.stop');
-        return new JPromiseStub();
-    };
+  public error(errorFunc: any) {
+    this.stub.callLog.push('connection.error');
+    this.stub.errorFunc = errorFunc;
+  }
 
-    get id(): string {
-        return '8bc90864-5f86-4f01-8e51-e21e5b326eb2';
-    }
+  public start() {
+    this.stub.callLog.push('connection.start');
+    return new JPromiseStub();
+  }
 
-    starting() { }
-    received() { }
-    connectionSlow() { }
-    reconnecting() { }
-    reconnected() { }
-    stateChanged() { }
-    disconnected() { }
+  public stop() {
+    this.stub.callLog.push('connection.stop');
+    return new JPromiseStub();
+  }
+
+  get id(): string {
+    return '8bc90864-5f86-4f01-8e51-e21e5b326eb2';
+  }
+
+  // tslint:disable-next-line:no-empty
+  public starting() {}
+  // tslint:disable-next-line:no-empty
+  public received() {}
+  // tslint:disable-next-line:no-empty
+  public connectionSlow() {}
+  // tslint:disable-next-line:no-empty
+  public reconnecting() {}
+  // tslint:disable-next-line:no-empty
+  public reconnected() {}
+  // tslint:disable-next-line:no-empty
+  public stateChanged() {}
+  // tslint:disable-next-line:no-empty
+  public disconnected() {}
 }
 
-export class JHubProxyStub { 
-
-    on(namedMessage: string, functionToCall: any) { 
-
-    }
+// tslint:disable-next-line:max-classes-per-file
+export class JHubProxyStub {
+  // tslint:disable-next-line:no-empty
+  public on(namedMessage: string, functionToCall: any) {}
 }
 
- 
-export class JPromiseStub { 
-
-    done() { }
-    fail() { }
+// tslint:disable-next-line:max-classes-per-file
+export class JPromiseStub {
+  // tslint:disable-next-line:no-empty
+  public done() {}
+  // tslint:disable-next-line:no-empty
+  public fail() {}
 }
 
 // var mockjConnection = (function () {
